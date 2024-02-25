@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.4.0/math.min.js"></script>
+    <title>Function Parser</title>
+    <style>
+        *{
+            transition:all ease-in-out 330ms;
+        }
+        body{
+            height:100%;
+            width:100%;
+            margin:0;
+        }
+        canvas{
+            border: 1px gray solid;
+            position:relative;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,12.5%);
+        }
+        #resizeContainerDevice{
+            position:fixed;
+            bottom:30px;
+            right:24px;
+        }
+        code{
+            background-color: #0002;
+            font-family: 'Times New Roman', Times, serif;
+            padding:5px;
+            border-radius:4px
+        }
+    </style>
+</head>
+<body>
+    <section id="input">
+        <p>A function looks like this: <code>x^2+2*x-4</code>.</p>
+        <input type="text" name="functionInput" id="fIn" placeholder="Input your function here..."/> <button id="submitBtn" type="submit">display</button><br/>
+    </section>
+    <canvas id="cnv">Your Browser does not support canvas. Try another browser.</canvas>
+    <div id="resizeContainerDevice">
+        <label for="resize">Resize height</label>
+        <input type="range" name="resizeHeight" id="rszeHeight" min="100" max="1300" disabled/>
+    </div>
+    <section id="table">
+        <button id="toggleTable"><span>Enable</span> table generation</button>
+        <table status="disabled">
+
+        </table>
+    </section>
+    <script src="./index.js"></script>
+</body>
+</html>
