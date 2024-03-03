@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.4.0/math.min.js"></script>
-    <title>Function Parser</title>
+    <title>Function Display Thing</title>
     <style>
         *{
             transition:all ease-in-out 330ms;
@@ -32,6 +32,51 @@
             padding:5px;
             border-radius:4px
         }
+        body[weird='yes']{
+            transform: matrix(.5,1,0,1,0,0);
+            animation: weird 60s ease-in-out 500ms infinite;
+        }
+        @keyframes weird {
+            0%{
+                transform: matrix(.5,1,0,1,0,0);
+            }
+            10%{
+                transform: matrix(.5,1,-.5,1,0,0)
+            }
+            20%{
+                transform: matrix(.5,0,-0.5,.5,0,0);
+            }
+            30%{
+                transform:matrix(-.5,0,-0.5,-.5,0,0);
+            }
+            45%{
+                transform:matrix(-.5,1,-0.5,-1.5,0,0);
+            }
+            60%{
+                transform:matrix(0,-.2,-0.5,-1.5,0,0);
+            }
+            75%{
+                background-color:chocolate;
+            }
+            80%{
+                background-image:url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2NjdjFqczR4YnI0NTZvdGZ1N2w3cXVuYjE5OG9zYzB2OWg4ODV2eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UAQut6DhqasaQ/giphy.gif');
+                background-color: initial;
+            }
+            85%{
+                background-repeat: no-repeat;
+                background-size:cover;
+                opacity: .5;
+            }
+            90%{
+                transform: matrix(2,1,-5,-1.5,-300,-80);
+            }
+            95%{opacity: 1;}
+            100%{
+                background-image:none;
+                transform: matrix(.5,1,0,1,0,0);
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -41,15 +86,19 @@
     </section>
     <canvas id="cnv">Your Browser does not support canvas. Try another browser.</canvas>
     <div id="resizeContainerDevice">
-        <label for="resize">Resize height</label>
+        <label for="resize">Resize</label>
+        <br/>
+        <label for="resizeHeight">Height</label>
         <input type="range" name="resizeHeight" id="rszeHeight" min="100" max="1300" disabled/>
+        <br/>
+        <label for="resizeWidth">Width</label>
+        <input type="range" name="resizeWidth" id="rszeWidth" min="100" max="1300" disabled/>
     </div>
     <section id="table">
         <button id="toggleTable"><span>Enable</span> table generation</button>
-        <table status="disabled">
-
-        </table>
+        <table></table>
     </section>
+    <div><button onclick="{alert('To end this just press the letter \'x\' on your keyboard. Whoever uses mobile phone is just lost.'); alert('Well... If you use mobile just reload the website to quit.\nThe worst that will happen is you losing your input function.'); document.querySelector('body').setAttribute('weird','yes'); document.addEventListener(('keyup'), someFunctionThatMakesAWeirdAnimationStopByPressingXOnTheKeyboard)}">Do Something Weird<br/>Like Start Each Word<br/>With A Capital Letter</button></div>
     <script src="./index.js"></script>
 </body>
 </html>
